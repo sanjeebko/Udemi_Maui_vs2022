@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CollectionViewDemo.MVVM.Views.LayoutPage"
+             Title="LayoutPage">
+    <CollectionView ItemsSource="{Binding Products}" SelectionMode="Single" SelectedItem="{Binding SelectedProduct}"
+                    SelectionChangedCommand="{Binding ProductChangedCommand}">
+        <CollectionView.Header>
+            <Frame BackgroundColor="{StaticResource Primary}">
+                <Label FontAttributes="Bold" Text="Products" TextColor="White"></Label>
+            </Frame>
+        </CollectionView.Header>
+        <CollectionView.Footer>
+            <HorizontalStackLayout>
+
+                <Label FontSize="Title">
+                    <Label.FormattedText>
+                        <FormattedString>
+                            <Span Text="Powered by:" TextColor="{StaticResource Tertiary}" />
+                            <Span Text=".net maui" TextColor="{StaticResource Primary}" />
+                        </FormattedString>
+                    </Label.FormattedText>
+                </Label>
+            </HorizontalStackLayout>
+        </CollectionView.Footer>
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" VerticalItemSpacing="10" Span="3">
+            </GridItemsLayout>
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Margin="15" WidthRequest="200" HeightRequest="250">
+                    <VerticalStackLayout>
+                        <Image Source="{Binding Image}" />
+                        <Label HorizontalTextAlignment="Center" Text="{Binding Name}" />
+                    </VerticalStackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+</ContentPage>
