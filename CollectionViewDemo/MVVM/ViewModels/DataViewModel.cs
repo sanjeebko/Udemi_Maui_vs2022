@@ -1,13 +1,7 @@
 ﻿using CollectionViewDemo.MVVM.Models;
 using CommunityToolkit.Mvvm.Input;
 using PropertyChanged;
-using System;
-using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.Linq;
-using System.Net.Http.Headers;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace CollectionViewDemo.MVVM.ViewModels;
@@ -19,6 +13,14 @@ public partial class DataViewModel
 
     public ObservableCollection<Product> Products { get; set; } = new();
 
+    public Product SelectedProduct
+    {
+        get => _selectedProduct;
+        set => _selectedProduct = value;
+    }
+
+    public List<object> SelectedProducts { get; set; } = new List<object>();
+
     public bool IsRefreshing { get; set; }
 
     public ICommand RefreshCommand => new Command(async () =>
@@ -29,11 +31,15 @@ public partial class DataViewModel
         IsRefreshing = false;
     });
 
-    public Product SelectedProduct
+    public ICommand ProductChangedCommand => new Command(() =>
     {
-        get => _selectedProduct;
-        set => _selectedProduct = value;
-    }
+        var selectedProduct = SelectedProduct;
+    });
+
+    public ICommand ProductsChangedCommand => new Command(() =>
+    {
+        var productList = SelectedProducts;
+    });
 
     public ICommand ThresholdReachedCommand => new Command(async () =>
     {
@@ -45,14 +51,21 @@ public partial class DataViewModel
         await Task.Run(() => Products.Remove((Product)p));
     });
 
-    public ICommand ProductChangedCommand => new Command(() =>
+    public RelayCommand ClearCommand => new RelayCommand(() =>
     {
-        var selectedProduct = SelectedProduct;
+        SelectedProduct = null;
+        SelectedProducts = null;
+        SelectedProducts = new List<object>();
     });
 
     public DataViewModel()
     {
-        Task.Run(() => RefreshItems(Products.Count));
+        var t1 = Task.Run(() => RefreshItems(Products.Count));
+        t1.Wait();
+        SelectedProducts.Add(Products.Skip(5).FirstOrDefault());
+        SelectedProducts.Add(Products.Skip(7).FirstOrDefault());
+
+        SelectedProduct = Products.Skip(2).FirstOrDefault();
     }
 
     private async Task RefreshItems(int lastIndex = 0)
