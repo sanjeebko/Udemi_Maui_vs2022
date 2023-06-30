@@ -13,6 +13,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MauiVerter", "MauiVerter\Ma
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Tasker", "Tasker\Tasker.csproj", "{B695639A-7B96-440B-BEE4-98CE6FF29616}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RestDemo", "RestDemo\RestDemo.csproj", "{B2F54C41-CC96-41D7-8433-C26692F56F12}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,12 @@ Global
 		{B695639A-7B96-440B-BEE4-98CE6FF29616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B695639A-7B96-440B-BEE4-98CE6FF29616}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B695639A-7B96-440B-BEE4-98CE6FF29616}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{B2F54C41-CC96-41D7-8433-C26692F56F12}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B2F54C41-CC96-41D7-8433-C26692F56F12}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B2F54C41-CC96-41D7-8433-C26692F56F12}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{B2F54C41-CC96-41D7-8433-C26692F56F12}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B2F54C41-CC96-41D7-8433-C26692F56F12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B2F54C41-CC96-41D7-8433-C26692F56F12}.Release|Any CPU.Deploy.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
