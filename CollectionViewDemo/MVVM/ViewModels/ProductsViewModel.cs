@@ -10,7 +10,7 @@ namespace CollectionViewDemo.MVVM.ViewModels;
 
 public class ProductsViewModel
 {
-    public ObservableCollection<ProductsGroup> Products { get; set; } = new  ();
+    public ObservableCollection<ProductsGroup> Products { get; set; } = new();
 
     public ProductsViewModel()
     {
@@ -30,10 +30,10 @@ public class ProductsViewModel
                 id++;
             }
         }
-        Products = new ObservableCollection<ProductsGroup>( grouped.ToList());
+        Products = new ObservableCollection<ProductsGroup>(grouped.ToList());
     }
 
-    private List<Product> LoadItems()
+    private static List<Product> LoadItems()
     {
         return new List<Product>
         {

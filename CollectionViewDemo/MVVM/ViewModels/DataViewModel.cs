@@ -51,7 +51,7 @@ public partial class DataViewModel
         await Task.Run(() => Products.Remove((Product)p));
     });
 
-    public RelayCommand ClearCommand => new RelayCommand(() =>
+    public RelayCommand ClearCommand => new(() =>
     {
         SelectedProduct = null;
         SelectedProducts = null;
