@@ -12,6 +12,5 @@ public partial class LayoutPage : ContentPage
 
     private void CollectionView_SelectionChanged(object sender, SelectionChangedEventArgs e)
     {
-        var element = e.CurrentSelection;
     }
 }
